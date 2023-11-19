@@ -1,0 +1,59 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    font-size: 18px;
+    background: #8fd8c6;
+    font-weight: bold;
+}
+
+.cards-container {
+    display: flex;
+    align-items: center;
+
+    .card {
+        margin: 50px;
+        width: 250px;
+        height: 400px;
+        perspective: 900px;
+        color: #0d2d52;
+
+        &-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
+            margin-bottom: 25px;
+        }
+    
+        &-front, &-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            background: #FFF;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+        }
+    
+        &-back {
+            background-color: #0d2d52;
+            color: #FFF;
+            transform: rotateY(180deg);
+        }
+    
+        &.flipped .card-inner {
+            transform: rotateY(180deg);
+        }
+    
+        &.flip:hover .card-inner {
+            transform: rotateY(180deg);
+        }
+    }
+}
+
+
